@@ -13,8 +13,8 @@ export default function Table() {
     const fetchLogs = async () => {
       setLoading(true);
       const logsRef = collection(db, "bills");
-      const logsQuery = query(logsRef, orderBy("time", "desc"));
-      const logsSnapshot = await getDocs(logsQuery);
+      const logsBills = query(logsRef, orderBy("time", "desc"));
+      const logsSnapshot = await getDocs(logsBills);
       const logsData = logsSnapshot.docs.map((doc) => doc.data());
       setLogs(logsData);
       setLoading(false);
